@@ -1,0 +1,7 @@
+body {
+  width: 100%;
+  height: auto;
+  background: url("https://thelabelsticks.com/assets/wooden-back.jpg");
+  background-size: cover;
+  box-shadow: inset -5px -4px 16px 8px rgba(0, 0, 0, 0.56);
+}
