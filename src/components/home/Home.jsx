@@ -2,6 +2,21 @@ import React, { Component } from "react";
 import "./Home.css";
 import FlipBook from "../flipbook/FlipBook";
 
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +27,7 @@ class Home extends Component {
       date: new Date()
     };
   }
+
   componentDidMount() {
     document.title = "The Label Sticks";
   }
@@ -24,25 +40,12 @@ class Home extends Component {
     };
   }
 
+  month = () => {
+    return months[this.state.date.getMonth()];
+  };
+  showFlipBook = item => this.setState({ showFlipBook: item });
+
   render() {
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
-    ];
-    const month = () => {
-      return months[this.state.date.getMonth()];
-    };
-    const showFlipBook = item => this.setState({ showFlipBook: true });
     return (
       <div className="home">
         <div className="masthead">
@@ -52,7 +55,7 @@ class Home extends Component {
             alt="The Label Sticks"
           />
           <div className="timestamp">
-            {this.state.date.getDate()} {month()}{" "}
+            {this.state.date.getDate()} {this.month()}{" "}
             {this.state.date.getFullYear()}
           </div>
         </div>
