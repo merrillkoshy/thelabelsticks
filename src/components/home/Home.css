@@ -19,6 +19,33 @@ body {
     inset 6px -7px 16px 2px rgba(0, 0, 0, 0.56);
   transform: rotate(-5deg);
 }
+@media only screen and (max-width: 768px) {
+  .home {
+    width: 71%;
+    height: auto;
+    position: absolute;
+    left: 15%;
+    top: 24%;    
+  }
+  .menu a{
+    font-size: 3vmin !important
+  }
+  .menu p{
+    width: 6rem !important;
+    font-size: 2.8vmin !important;
+  }
+  .imagewrapper{
+    max-width: 11vh !important;
+  }
+  .hover{
+    width: 22vh !important;
+  }
+  .hover p {
+    font-size: 3.8vmin !important;
+    color: white;
+    width: 23vh !important;
+  }
+}
 .home img {
   width: 100%;
   height: auto;
@@ -34,6 +61,8 @@ body {
   position: absolute;
   top: 14%;
   left: 4%;
+  width: 100%;
+  height: auto;
 }
 .menu a {
   position: relative;
@@ -42,16 +71,94 @@ body {
   color: #33302a;
   text-shadow: -1px 2px 3px rgb(255, 255, 255);
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 2vmin;
+  cursor:pointer;
 }
 .menu p {
   /* font-family: "Lato", sans-serif; */
   /* font-family: 'Open Sans Condensed', sans-serif; */
   font-family: "Helvetica Neue", sans-serif;
   margin-top: 0.2rem;
-  font-size: 0.8rem;
+  font-size: 1.8vmin;
   color: #000000;
   font-weight: 100;
-  width: 8rem;
+  width: 9rem;
   text-shadow: 0px 0px 0px rgb(0, 0, 0);
+}
+.hover{
+  position: absolute;
+  transform: rotate(5deg);
+  background: white;
+  border-radius: 10px;
+  width: 50vh;
+  height: auto;
+  z-index: 2;
+  padding: 3rem;
+  animation:fadein 0.6s;
+  transition: all 0.15s ease-out;
+  -webkit-transition-delay: .3s;
+  transition-delay: .3s;
+  box-shadow:-2px 3px 5px 2px rgba(0, 0, 0, 0.66);
+}
+.hover::after{
+  content: '';
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: #262626;
+    z-index: -1;
+    box-shadow:-2px 3px 5px 2px rgba(0, 0, 0, 0.66);
+}
+
+@keyframes fadein{
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:1;
+  }
+}
+
+
+.hover h1{
+  font-size: 3vmin;
+  color: white;
+  text-shadow: 0px 4px 4px rgb(0,0,0);
+}
+.imagewrapper{
+  width: 100%;
+  height: auto;
+  max-width:20vh;
+}
+.hover p{
+  font-size: 2.8vmin;
+  color: white;
+  width: 50vh;
+}
+.hover button{
+  position: absolute;
+  top: 20%;
+  right: 2%;
+  font-size: 4.8vmin;
+  background: black;
+  color: white;
+  border: black;
+  cursor: pointer;
+  box-shadow: -3px 4px 1px 1px rgba(0, 0, 0, 0.56);
+}
+.hover button::after{
+  content: '';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: -1;
+}
+.hover button:focus,.hover button:active{
+  border: black;
 }
