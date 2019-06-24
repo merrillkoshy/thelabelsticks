@@ -3,76 +3,76 @@
   height: 100%;
   position: absolute;
   top: 0;
-  z-index:5;
+  z-index: 5;
   border-radius: 15px 0 0 15px;
   transform: rotate(5deg);
 }
-.pageBottom{
+.pageBottom {
   position: absolute;
   bottom: 0rem;
-  left: 1rem
+  left: 1rem;
 }
-.magazineBorder{
+.magazineBorder {
   border-top: 0.3rem solid;
   height: 90%;
   width: 90%;
   position: absolute;
   left: 1rem;
-  top: 1rem;  
+  top: 1rem;
 }
-.page{
+.page {
   position: absolute;
-  z-index:4;
+  z-index: 4;
   width: 90%;
   height: 90%;
-  transition:0.7s;
+  transition: 0.7s;
 }
-.page:hover{
+.page:hover {
   transform: rotateY(20deg);
-  transition:0.5s;
+  transition: 0.5s;
 }
-.page.active{
-  height: 100%;
-  background: white;  
+.page.active {
+  height: 75vmin;
+  background: white;
   border-radius: 0px 15px 15px 0px;
-  z-index:5;
+  z-index: 5;
   filter: blur(0px);
-  animation:spread-description 1s forwards;
-  animation-delay:1s;
+  animation: spread-description 1s forwards;
+  animation-delay: 1s;
 }
-@keyframes spread-description{
-0%{
-  width: 40vmin;
-}
-100%{
-  width: 63vmin;
+@keyframes spread-description {
+  0% {
+    width: 40vmin;
+  }
+  100% {
+    width: 90vmin;
+  }
 }
 
-}
-@keyframes show-description{
-  0%{
-    display:none;
-    opacity: 0;
-  }
-  100%{
-    display:block;
-    opacity: 1;
-  }
-  
-  }
-.star-description{
+.star-description {
   opacity: 0;
-  animation:show-description 1s forwards;
-  animation-delay:1s;
   position: absolute;
-  bottom: 30%;
+  bottom: 7vmin;
   right: 0;
   width: 50%;
 }
-.page.active:hover{
+
+.page.active > div > div.textContent > div {
+  animation: show-description 1s forwards;
+  animation-delay: 1.5s;
+}
+@keyframes show-description {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.page.active:hover {
   transform: rotateY(0deg);
 }
-.page::after{
+.page::after {
   position: absolute;
   right: -2%;
   bottom: -6%;
@@ -83,25 +83,25 @@
   z-index: -1;
   background: #0305021a;
 }
-.page.left{  
+.page.left {
   left: -8rem;
   filter: blur(1px);
 }
-.page.right{  
+.page.right {
   left: 8rem;
   filter: blur(1px);
   background: white;
 }
-.textContent{
-  background: white; 
+.textContent {
+  background: white;
 }
-.magazineImage{
+.magazineImage {
   position: absolute;
   width: 77% !important;
   height: auto !important;
   max-width: 238px !important;
 }
-.starName{
+.starName {
   position: absolute;
   top: 1rem;
   right: 0rem;
@@ -110,38 +110,36 @@
   color: white;
   background: black;
 }
-.firstPageStyle{
+.firstPageStyle {
   margin: 11vmin 10%;
   padding: 10%;
   font-size: 3vmin;
   border-radius: 10px 0px;
   border-bottom: 0.3rem solid;
 }
-.navigationDock{
+.navigationDock {
   position: absolute;
   z-index: 5;
-  bottom: -6rem;
+  bottom: 0rem;
   font-size: 2rem;
   width: 100%;
-  color: white;  
+  color: white;
   height: 3rem;
 }
-.navigationDock .navigateleft{
-  position:absolute;
-  left:1rem;
+.navigationDock .navigateleft {
+  position: absolute;
+  left: 1rem;
   background: black;
   padding: 0.3rem;
   cursor: pointer;
 }
-.navigationDock .navigateRight{
-  position:absolute;
-  right:1rem;
+.navigationDock .navigateRight {
+  position: absolute;
+  right: 1rem;
   background: black;
   padding: 0.3rem;
   cursor: pointer;
 }
-
-
 
 /* Media Queries */
 @media only screen and (max-width: 768px) {
