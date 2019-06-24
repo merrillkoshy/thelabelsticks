@@ -1,3 +1,151 @@
 .container-fb {
-  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index:5;
+  border-radius: 15px 0 0 15px;
+  transform: rotate(5deg);
+}
+.pageBottom{
+  position: absolute;
+  bottom: 0rem;
+  left: 1rem
+}
+.magazineBorder{
+  border-top: 0.3rem solid;
+  height: 90%;
+  width: 90%;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;  
+}
+.page{
+  position: absolute;
+  z-index:4;
+  width: 90%;
+  height: 90%;
+  transition:0.7s;
+}
+.page:hover{
+  transform: rotateY(20deg);
+  transition:0.5s;
+}
+.page.active{
+  height: 100%;
+  background: white;  
+  border-radius: 0px 15px 15px 0px;
+  z-index:5;
+  filter: blur(0px);
+  animation:spread-description 1s forwards;
+  animation-delay:1s;
+}
+@keyframes spread-description{
+0%{
+  width: 40vmin;
+}
+100%{
+  width: 63vmin;
+}
+
+}
+@keyframes show-description{
+  0%{
+    display:none;
+    opacity: 0;
+  }
+  100%{
+    display:block;
+    opacity: 1;
+  }
+  
+  }
+.star-description{
+  opacity: 0;
+  animation:show-description 1s forwards;
+  animation-delay:1s;
+  position: absolute;
+  bottom: 30%;
+  right: 0;
+  width: 50%;
+}
+.page.active:hover{
+  transform: rotateY(0deg);
+}
+.page::after{
+  position: absolute;
+  right: -2%;
+  bottom: -6%;
+  border-radius: 26%;
+  width: 100%;
+  height: 2%;
+  content: "";
+  z-index: -1;
+  background: #0305021a;
+}
+.page.left{  
+  left: -8rem;
+  filter: blur(1px);
+}
+.page.right{  
+  left: 8rem;
+  filter: blur(1px);
+  background: white;
+}
+.textContent{
+  background: white; 
+}
+.magazineImage{
+  position: absolute;
+  width: 77% !important;
+  height: auto !important;
+  max-width: 238px !important;
+}
+.starName{
+  position: absolute;
+  top: 1rem;
+  right: 0rem;
+  font-size: 2rem;
+  width: 50%;
+  color: white;
+  background: black;
+}
+.firstPageStyle{
+  margin: 11vmin 10%;
+  padding: 10%;
+  font-size: 3vmin;
+  border-radius: 10px 0px;
+  border-bottom: 0.3rem solid;
+}
+.navigationDock{
+  position: absolute;
+  z-index: 5;
+  bottom: -6rem;
+  font-size: 2rem;
+  width: 100%;
+  color: white;  
+  height: 3rem;
+}
+.navigationDock .navigateleft{
+  position:absolute;
+  left:1rem;
+  background: black;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+.navigationDock .navigateRight{
+  position:absolute;
+  right:1rem;
+  background: black;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+
+
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+  .page.active {
+    height: 89.5%;
+  }
 }

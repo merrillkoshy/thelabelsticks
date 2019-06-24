@@ -90,7 +90,8 @@ class Home extends Component {
             className="menuitem"
             style={{
               fontFamily: "Rubik Mono One, sans-serif",
-              fontWeight: "500"
+              fontWeight: "500",
+              color:'#ac181e'
             }}
           >
             ROYALTY
@@ -117,22 +118,23 @@ class Home extends Component {
               fontWeight: "500",
               fontStyle: "italic",
               letterSpacing: "-0.5vmin",
-              fontSize: "calc(2vmin + 3px)"
+              fontSize: "calc(2vmin + 3px)",
+              color: '#ac181e'
             }}
           >
             LEARNING CURVE
             <p style={{ letterSpacing: "0vmin", fontStyle: "normal" }}>
-              Know the stars that shine through their students
+              Stars that shine through their students
             </p>
           </a>
           <a
             className="menuitem"
-            style={{ position: "absolute", right: "1rem", top: "60%" }}
+            style={{ position: "absolute", right: "1rem", top: "60%" ,color:'#ac181e'}}
           >
             BON VOYAGE
             <p style={{ fontFamily: "serif" }}>
               {" "}
-              We’re here to guide you through
+              Here to guide you through !
             </p>
           </a>
           <a
@@ -142,14 +144,14 @@ class Home extends Component {
               fontWeight: "500",
               position: "absolute",
               right: "2.5rem",
-              top: "78%"
+              top: "78%",
+              color:'#ac181e'
             }}
           >
             DESTINATIONS
             <p>
               {" "}
-              Trending <strong>properties</strong> and property related news in
-              a nutshell, right here
+              Trending <strong>properties</strong> and property related news 
             </p>
           </a>
         </div>

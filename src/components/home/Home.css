@@ -47,6 +47,7 @@ body {
   }
 }
 .home img {
+  max-width: 50vmin;
   width: 100%;
   height: auto;
   border-radius: 0px 15px 15px 2px;
@@ -71,15 +72,14 @@ body {
   color: #33302a;
   text-shadow: -1px 2px 3px rgb(255, 255, 255);
   font-weight: bold;
-  font-size: calc(2vmin + 7px);
+  font-size: calc(2vmin + 3px);
   cursor: pointer;
 }
 .menu p {
-  /* font-family: "Lato", sans-serif; */
-  /* font-family: 'Open Sans Condensed', sans-serif; */
+  margin-bottom: 0rem;
   font-family: "Helvetica Neue", sans-serif;
-  margin-top: 0.2rem;
-  font-size: calc(1.8vmin + 0.2rem);
+  margin-top: 0.1rem;
+  font-size: calc(1.8vmin + 0.05rem);
   color: #000000;
   font-weight: 100;
   width: 9rem;
