@@ -38,7 +38,7 @@
   z-index: 5;
   filter: blur(0px);
   animation: spread-description 1s forwards;
-  animation-delay: 1s;
+  animation-delay: 0.2s;
 }
 @keyframes spread-description {
   0% {
@@ -59,7 +59,7 @@
 
 .page.active > div > div.textContent > div {
   animation: show-description 1s forwards;
-  animation-delay: 1.5s;
+  animation-delay: 1s;
 }
 @keyframes show-description {
   0% {
