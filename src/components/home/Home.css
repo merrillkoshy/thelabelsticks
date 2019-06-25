@@ -19,9 +19,23 @@ body {
     inset 6px -7px 16px 2px rgba(0, 0, 0, 0.56);
   transform: rotate(-5deg);
 }
+.closeButton{
+  transform: rotate(5deg);
+    position: absolute;
+    top: 5vmin;
+    right: -20vmin;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
+    background: black;
+    color: white;
+    padding: 1vmin;
+    font-size: 6vmin;
+    border-radius: 10px 0px 10px 0px;
+    cursor: pointer;
+    box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.79);
+}
 @media only screen and (max-width: 768px) {
   .home {
-    width: 71%;
+    width: 70vmin;
     height: auto;
     position: absolute;
     left: 15%;
@@ -44,6 +58,9 @@ body {
     font-size: 3.8vmin !important;
     color: white;
     width: 23vh !important;
+  }
+  .timestamp{
+    font-size: 3vmin;
   }
 }
 .home img {

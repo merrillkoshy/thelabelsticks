@@ -93,8 +93,24 @@ class Home extends Component {
               fontWeight: "500",
               color: "#ac181e"
             }}
+            onMouseEnter={this.handleMouseHover}
+            onMouseLeave={this.handleMouseHover}
           >
             ROYALTY
+            {this.state.isHovering && (
+              <div className="hover">
+                <h1>ROYALTY</h1>
+                <div className="imagewrapper">
+                  <img src="https://thelabelsticks.com/assets/homepage-section/royalty.jpg" />
+                  <p>
+                  Elegance and grace come naturally to the elite. They are deeply rooted to their culture and equally connected to the world today. Here’s a window to their life.
+                  </p>
+                  <button onClick={() => this.showFlipBook("royalty")}>
+                    READ
+                  </button>
+                </div>
+              </div>
+            )}
             <p>Here’s a window to their life</p>
           </a>
           <a
@@ -161,8 +177,9 @@ class Home extends Component {
           alt="The Labelsticks director Ms.Sandy Nathan"
           src="https://thelabelsticks.com/assets/tls_cover.jpg"
         />
-        {this.state.showFlipBook && <FlipBook />}
-      </div>
+        {(this.state.showFlipBook=='stars') && <FlipBook />}
+        {this.state.showFlipBook && <div className="closeButton"onClick={() => {this.setState({showFlipBook:this.state.showFlipBook=""})}}>BACK</div>}
+    </div>
     );
   }
 }

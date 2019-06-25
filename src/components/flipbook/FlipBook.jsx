@@ -1,57 +1,35 @@
 import React, { Component } from "react";
 import "./Flipbook.css";
+import PostData from './starsDetails.json'
 
-const stars = [
-  "ANITA KANWAL",
-  "WENDELL RODRICKS",
-  "SONAAKSHI RAAJ",
-  "ROHIT VERMA",
-  "ROHIT VERMA",
-  "ROCKY STAR",
-  "RASHMI KUMARI",
-  "AMIRA HAROUN",
-  "VASILISA KOZHEMIAKO",
-  "KAVITA ARORA"
-];
 
-const firstPage = "";
-
-const numberOfPages = stars.length + 1;
 let pageNumber = 1;
 class FlipBook extends Component {
   constructor(props) {
     super(props);
     this.state = {
       pnumber: 1,
+      showDescription:"",
       pageClass: "page active",
       pageInactiveClass: "page right"
     };
   }
-  renderSwitch(numbersToDisplay) {
-    switch (numbersToDisplay) {
-      case 1:
-        return firstPage;
-      case 2:
-        return "";
-      default:
-        return "";
-    }
+  
+  showDescription=()=>{
+    return this.state.showDescription;
   }
-
   currentpageNumber = () => {
     return this.state.pnumber;
   };
   currentPageClass = () => {
     return this.state.pageClass;
   };
-  inactivePageClass = () => {
-    return this.state.pageInactiveClass;
-  };
+  
+  
   render() {
     return (
-      <div className="container-fb">
-        {this.renderSwitch(this.currentpageNumber())}
-        <div className={this.currentPageClass()}>
+      <div className={"container-fb "}>        
+        <div className='page active' style={{zIndex:Object.keys(PostData).length}}>
           <img
             style={{ maxWidth: "50vmin", position: "absolute" }}
             src="https://thelabelsticks.com/assets/homepage-section/our-stars.jpg"
@@ -66,32 +44,32 @@ class FlipBook extends Component {
             <div className="pageBottom">1 | OUR STARS</div>
           </div>
         </div>
-        <div className={this.inactivePageClass()}>
-          <div className="magazineBorder">
-            <div className="textContent">
-              <img
-                className="magazineImage"
-                src="https://thelabelsticks.com/assets/homepage-section/our-stars/Anita.png"
-              />
-              <a className="starName">
-                ANITA <strong>KANWAL</strong>
-              </a>
-              <div className="star-description">
-                Meeting the bubbly, energetic and enterprising Anita Kanwal was
-                a treat to the senses and the heart. She is entertainment
-                personified; no wonder she was in the film industry making waves
-                with her various roles in Cinema and TV. Her penchant for acting
-                bagged her acclaimed roles in the movies like Aarakshan and
-                Gangaajal and daily soaps like Sasural Genda Phool and Zindagi
-                Abhi Baaki Hai Mere Ghost.
-              </div>
-            </div>
-            <div className="pageBottom">
-              2 | THE <strong>LABELSTICKS</strong>
-            </div>
-          </div>
-        </div>
-        <div className="navigationDock">
+                  
+             
+              {PostData.map((postDetail, index)=>{
+                return<div   key={postDetail.id+1} id={postDetail.id+1} style={{position: 'relative',left:(postDetail.id*10+'vmin')}}>
+                <div                  
+                className={'page active '+this.showDescription()}
+                style={{zIndex:(10-postDetail.id)}}
+                /* onClick={()=>{this.setState({
+                  showDescription:this.state.showDescription="visible"
+                })}} *//* {this.inactivePageClass()} */>
+                        <div className="magazineBorder"> 
+                          <div className="textContent">
+                            <img className="magazineImage" src={postDetail.image}/>
+                            <a className="starName">{postDetail.firstname}<strong>{postDetail.lastname}</strong></a>
+                            <div className={"star-description "+this.showDescription()}>{postDetail.content}</div>
+                          </div>
+                        </div>
+                        <div className="pageBottom">
+                        {postDetail.id+1} | THE <strong>LABELSTICKS</strong>
+                        </div>
+                    </div>
+                    </div>
+                      })}
+            
+        
+        {/* <div className="navigationDock">
           <a
             className="navigateleft"
             onClick={() => {
@@ -107,8 +85,7 @@ class FlipBook extends Component {
           >
             PREVIOUS
           </a>
-          <a
-            className="navigateRight"
+          <a className="navigateRight"
             onClick={() => {
               if (this.state.pnumber < numberOfPages) {
                 this.setState({
@@ -122,9 +99,10 @@ class FlipBook extends Component {
           >
             NEXT
           </a>
-        </div>
+          </div> */}
       </div>
     );
   }
 }
+
 export default FlipBook;
