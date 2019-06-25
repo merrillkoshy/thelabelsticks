@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Flipbook.css";
-import PostData from './starsDetails.json'
-
+import PostData from "./starsDetails.json";
 
 let pageNumber = 1;
 class FlipBook extends Component {
@@ -9,27 +8,29 @@ class FlipBook extends Component {
     super(props);
     this.state = {
       pnumber: 1,
-      showDescription:"",
+      showDescription: "",
       pageClass: "page active",
       pageInactiveClass: "page right"
     };
   }
-  
-  showDescription=()=>{
+
+  showDescription = () => {
     return this.state.showDescription;
-  }
+  };
   currentpageNumber = () => {
     return this.state.pnumber;
   };
   currentPageClass = () => {
     return this.state.pageClass;
   };
-  
-  
+
   render() {
     return (
-      <div className={"container-fb "}>        
-        <div className='page active' style={{zIndex:Object.keys(PostData).length}}>
+      <div className={"container-fb "}>
+        <div
+          className="page active"
+          style={{ zIndex: Object.keys(PostData).length }}
+        >
           <img
             style={{ maxWidth: "50vmin", position: "absolute" }}
             src="https://thelabelsticks.com/assets/homepage-section/our-stars.jpg"
@@ -44,31 +45,66 @@ class FlipBook extends Component {
             <div className="pageBottom">1 | OUR STARS</div>
           </div>
         </div>
-                  
-             
-              {PostData.map((postDetail, index)=>{
-                return<div   key={postDetail.id+1} id={postDetail.id+1} style={{position: 'relative',left:(postDetail.id*10+'vmin')}}>
-                <div                  
-                className={'page active '+this.showDescription()}
-                style={{zIndex:(10-postDetail.id)}}
+
+        {PostData.map((postDetail, index) => {
+          return (
+            <div
+              onMouseEnter={() => this.setState({ activeCard: postDetail.id })}
+              key={postDetail.id + 1}
+              id={postDetail.id + 1}
+              style={{
+                position: "relative",
+                left: postDetail.id * 11 + "vmin"
+              }}
+            >
+              <div
+                className={
+                  "page active " +
+                  (this.state.activeCard === postDetail.id
+                    ? "active-hover"
+                    : "mouseout-hover")
+                }
+                style={{
+                  zIndex: 10 - postDetail.id
+                }} /* {this.inactivePageClass()} */
                 /* onClick={()=>{this.setState({
                   showDescription:this.state.showDescription="visible"
-                })}} *//* {this.inactivePageClass()} */>
-                        <div className="magazineBorder"> 
-                          <div className="textContent">
-                            <img className="magazineImage" src={postDetail.image}/>
-                            <a className="starName">{postDetail.firstname}<strong>{postDetail.lastname}</strong></a>
-                            <div className={"star-description "+this.showDescription()}>{postDetail.content}</div>
-                          </div>
-                        </div>
-                        <div className="pageBottom">
-                        {postDetail.id+1} | THE <strong>LABELSTICKS</strong>
-                        </div>
+                })}} */
+              >
+                <div className="magazineBorder">
+                  <div className="textContent">
+                    <img className="magazineImage" src={postDetail.image} />
+                    <a
+                      className={
+                        "starName " +
+                        (this.state.activeCard === postDetail.id
+                          ? "straighten"
+                          : null)
+                      }
+                    >
+                      {postDetail.firstname}
+                      <strong>{postDetail.lastname}</strong>
+                    </a>
+                    <div
+                      className={
+                        "star-description " +
+                        (this.state.activeCard === postDetail.id
+                          ? "visible"
+                          : null)
+                      }
+                    >
+                      {postDetail.content}
                     </div>
-                    </div>
-                      })}
-            
-        
+                  </div>
+                </div>
+                <div className="pageBottom">
+                  {postDetail.id + 1} | THE <strong>LABELSTICKS</strong>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+
         {/* <div className="navigationDock">
           <a
             className="navigateleft"

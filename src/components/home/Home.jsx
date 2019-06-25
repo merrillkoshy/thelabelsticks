@@ -31,6 +31,11 @@ class Home extends Component {
   componentDidMount() {
     document.title = "The Label Sticks";
   }
+  setHoverElementById = id => this.setState({ displayHoverelementById: id });
+
+  displayHoverelementById() {
+    return this.state.displayHoverelementById;
+  }
   handleMouseHover() {
     this.setState(this.toggleHoverState);
   }
@@ -61,12 +66,13 @@ class Home extends Component {
         </div>
         <div className="menu">
           <a
+            href="#"
             className="menuitem"
-            onMouseEnter={this.handleMouseHover}
-            onMouseLeave={this.handleMouseHover}
+            onMouseEnter={() => this.setHoverElementById(1)}
+            onMouseLeave={() => this.setHoverElementById(0)}
           >
             OUR STARS
-            {this.state.isHovering && (
+            {this.displayHoverelementById() === 1 && (
               <div className="hover">
                 <h1>OUR STARS</h1>
                 <div className="imagewrapper">
@@ -87,23 +93,26 @@ class Home extends Component {
             </p>
           </a>
           <a
+            href="#"
             className="menuitem"
             style={{
               fontFamily: "Rubik Mono One, sans-serif",
               fontWeight: "500",
               color: "#ac181e"
             }}
-            onMouseEnter={this.handleMouseHover}
+            onMouseEnter={() => this.setHoverElementById(2)}
             onMouseLeave={this.handleMouseHover}
           >
             ROYALTY
-            {this.state.isHovering && (
+            {this.displayHoverelementById() === 2 && (
               <div className="hover">
                 <h1>ROYALTY</h1>
                 <div className="imagewrapper">
                   <img src="https://thelabelsticks.com/assets/homepage-section/royalty.jpg" />
                   <p>
-                  Elegance and grace come naturally to the elite. They are deeply rooted to their culture and equally connected to the world today. Here’s a window to their life.
+                    Elegance and grace come naturally to the elite. They are
+                    deeply rooted to their culture and equally connected to the
+                    world today. Here’s a window to their life.
                   </p>
                   <button onClick={() => this.showFlipBook("royalty")}>
                     READ
@@ -114,6 +123,7 @@ class Home extends Component {
             <p>Here’s a window to their life</p>
           </a>
           <a
+            href="#"
             className="menuitem"
             style={{ fontFamily: "Abril Fatface, cursive", fontWeight: "500" }}
           >
@@ -128,6 +138,7 @@ class Home extends Component {
             <p>Nothing haunts us like the things we didn't buy</p>
           </a>
           <a
+            href="#"
             className="menuitem"
             style={{
               fontFamily: "Rubik Mono One, sans-serif",
@@ -144,6 +155,7 @@ class Home extends Component {
             </p>
           </a>
           <a
+            href="#"
             className="menuitem"
             style={{
               position: "absolute",
@@ -156,6 +168,7 @@ class Home extends Component {
             <p style={{ fontFamily: "serif" }}> Here to guide you through !</p>
           </a>
           <a
+            href="#"
             className="menuitem"
             style={{
               fontFamily: "Abril Fatface, cursive",
@@ -177,9 +190,18 @@ class Home extends Component {
           alt="The Labelsticks director Ms.Sandy Nathan"
           src="https://thelabelsticks.com/assets/tls_cover.jpg"
         />
-        {(this.state.showFlipBook=='stars') && <FlipBook />}
-        {this.state.showFlipBook && <div className="closeButton"onClick={() => {this.setState({showFlipBook:this.state.showFlipBook=""})}}>BACK</div>}
-    </div>
+        {this.state.showFlipBook === "stars" && <FlipBook />}
+        {this.state.showFlipBook && (
+          <div
+            className="closeButton"
+            onClick={() => {
+              this.setState({ showFlipBook: (this.state.showFlipBook = "") });
+            }}
+          >
+            BACK
+          </div>
+        )}
+      </div>
     );
   }
 }
