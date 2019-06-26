@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./Flipbook.css";
 import PostData from "./starsDetails.json";
+import {BrowserRouter, Route } from "react-router-dom";
+
+import indexPage from '../interviews/indexPage'
 
 let pageNumber = 1;
 class FlipBook extends Component {
@@ -50,6 +53,7 @@ class FlipBook extends Component {
           return (
             <div
               onMouseEnter={() => this.setState({ activeCard: postDetail.id })}
+              onMouseLeave={() => this.setState({ activeCard: "mouseout-hover"})}
               key={postDetail.id + 1}
               id={postDetail.id + 1}
               style={{
@@ -62,7 +66,7 @@ class FlipBook extends Component {
                   "page active " +
                   (this.state.activeCard === postDetail.id
                     ? "active-hover"
-                    : "mouseout-hover")
+                    : null)
                 }
                 style={{
                   zIndex: 10 - postDetail.id
@@ -93,7 +97,11 @@ class FlipBook extends Component {
                           : null)
                       }
                     >
+                      <BrowserRouter>
+                          <Route path={"/"+postDetail.firstname} component={indexPage}/>
+                        </BrowserRouter>
                       {postDetail.content}
+                      <button>Read More</button>
                     </div>
                   </div>
                 </div>

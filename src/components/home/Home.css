@@ -22,6 +22,7 @@ body {
 .closeButton {
   transform: rotate(5deg);
   position: absolute;
+  z-index: 2;
   top: 2vmin;
   right: 70vmin;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6);
@@ -85,6 +86,7 @@ body {
 .menu a {
   position: relative;
   top: 1rem;
+  text-decoration: none;
   font-family: "Oswald", sans-serif;
   color: #33302a;
   text-shadow: -1px 2px 3px rgb(255, 255, 255);
