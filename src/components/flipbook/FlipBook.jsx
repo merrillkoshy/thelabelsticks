@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Flipbook.css";
-import PostData from "./starsDetails.json";
+// import PostData from "../../data/starsDetails";
 
 let pageNumber = 1;
 class FlipBook extends Component {
@@ -10,8 +10,15 @@ class FlipBook extends Component {
       pnumber: 1,
       showDescription: "",
       pageClass: "page active",
-      pageInactiveClass: "page right"
+      pageInactiveClass: "page right",
+      postData: []
     };
+  }
+
+  componentDidMount() {
+    this.setState({
+      postData: JSON.parse(localStorage.getItem("stars"))
+    });
   }
 
   showDescription = () => {
@@ -29,7 +36,7 @@ class FlipBook extends Component {
       <div className={"container-fb "}>
         <div
           className="page active"
-          style={{ zIndex: Object.keys(PostData).length }}
+          style={{ zIndex: Object.keys(this.state.postData).length }}
         >
           <img
             style={{ maxWidth: "50vmin", position: "absolute" }}
@@ -46,7 +53,7 @@ class FlipBook extends Component {
           </div>
         </div>
 
-        {PostData.map((postDetail, index) => {
+        {this.state.postData.map((postDetail, index) => {
           return (
             <div
               onMouseEnter={() => this.setState({ activeCard: postDetail.id })}
@@ -85,7 +92,7 @@ class FlipBook extends Component {
                           : null)
                       }
                     >
-                      {postDetail.firstname}
+                      {postDetail.firstname + " "}
                       <strong>{postDetail.lastname}</strong>
                     </a>
                     <div
@@ -97,7 +104,12 @@ class FlipBook extends Component {
                       }
                     >
                       {postDetail.content}
-                      <button>Read More</button>
+                      <a
+                        className="readMoreButton"
+                        href={"/stars/" + postDetail.firstname}
+                      >
+                        Read More
+                      </a>
                     </div>
                   </div>
                 </div>

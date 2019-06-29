@@ -51,10 +51,12 @@
 }
 @keyframes spread-description {
   0% {
+    opacity: 0.5;
     left: 0vmin;
     width: 40vmin;
   }
   100% {
+    opacity: 1;
     left: 26vmin;
     width: 90vmin;
   }
@@ -121,6 +123,7 @@
   left: 10vmin;
 }
 .starName {
+  text-transform: uppercase;
   position: absolute;
   top: 7vmin;
   right: -4vmin;
@@ -173,6 +176,18 @@
   animation: compress-description 1s forwards;
   animation-delay: 1s;
 }
+.readMoreButton {
+  bottom: -6vmin;
+  right: 0vmin;
+  position: absolute;
+  font-size: 3.8vmin;
+  background: black;
+  color: white;
+  border: black;
+  cursor: pointer;
+  box-shadow: -3px 4px 1px 1px rgba(0, 0, 0, 0.56);
+  text-decoration: none;
+}
 /* .navigationDock {
   position: absolute;
   z-index: 5;
@@ -219,7 +234,7 @@
     padding: 1vmin;
     font-size: 11vmin;
   }
-  .star-description{
+  .star-description {
     font-size: 2.5vmin;
   }
 }

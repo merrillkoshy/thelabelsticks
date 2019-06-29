@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Home.css";
 import FlipBook from "../flipbook/FlipBook";
 
+import axios from "axios";
+
 const months = [
   "January",
   "February",
@@ -30,6 +32,16 @@ class Home extends Component {
 
   componentDidMount() {
     document.title = "The Label Sticks";
+    axios({
+      url: "http://localhost:3000/stars",
+      method: "get",
+      withCredentials: true
+    })
+      .then(data => {
+        console.log({ data });
+        localStorage.setItem("stars", JSON.stringify(data.data));
+      })
+      .catch(err => alert(err));
   }
   setHoverElementById = id => this.setState({ displayHoverelementById: id });
 
