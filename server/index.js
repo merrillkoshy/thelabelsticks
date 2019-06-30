@@ -2,10 +2,10 @@ const stars = require("./data/starsDetails");
 const express = require("express");
 const fs = require("fs");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 5000;;
 
 app.get("/stars", (req, res) => {
-  res.set("Access-Control-Allow-Origin", "http://localhost:3001");
+  res.set("Access-Control-Allow-Origin", "http://localhost:5000");
   res.set("Access-Control-Allow-Credentials", true);
   res.send(stars);
 });
