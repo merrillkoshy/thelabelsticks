@@ -1,8 +1,8 @@
 .container-fb {
-  width: 100%;
+  width: 100vmin;
   height: 75vmin;
   position: absolute;
-  top: 7vmin;
+  top: 10vmin;
   left: -37vmin;
   z-index: 1;
   border-radius: 15px 0 0 15px;

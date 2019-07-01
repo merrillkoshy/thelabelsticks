@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import "./Flipbook.css";
-// import PostData from "../../data/starsDetails";
-
-let pageNumber = 1;
 class FlipBook extends Component {
   constructor(props) {
     super(props);
@@ -76,14 +73,11 @@ class FlipBook extends Component {
                 }
                 style={{
                   zIndex: 10 - postDetail.id
-                }} /* {this.inactivePageClass()} */
-                /* onClick={()=>{this.setState({
-                  showDescription:this.state.showDescription="visible"
-                })}} */
+                }}
               >
                 <div className="magazineBorder">
                   <div className="textContent">
-                    <img className="magazineImage" src={postDetail.image} />
+                    <img className="magazineImage" src={postDetail.image} alt={postDetail.firstname+' '+postDetail.lastname}/>
                     <a
                       className={
                         "starName " +

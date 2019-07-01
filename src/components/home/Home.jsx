@@ -42,6 +42,16 @@ class Home extends Component {
         localStorage.setItem("stars", JSON.stringify(data.data));
       })
       .catch(err => alert(err));
+      axios({
+        url: "http://localhost:3000/starsDetails",
+        method: "get",
+        withCredentials: true
+      })
+        .then(data => {
+          console.log({ data });
+          localStorage.setItem("starsDetails", JSON.stringify(data.data));
+        })
+        .catch(err => alert(err));
   }
   setHoverElementById = id => this.setState({ displayHoverelementById: id });
 
@@ -207,7 +217,7 @@ class Home extends Component {
           <div
             className="closeButton"
             onClick={() => {
-              this.setState({ showFlipBook: (this.state.showFlipBook = "") });
+              this.setState({ showFlipBook:""});
             }}
           >
             BACK
