@@ -24,37 +24,49 @@ h1 {
   position: fixed;
 }
 .content-container {
+  min-width: 184vmin;
   position: absolute;
   height: 90vmin;
-  margin: 6vmin 10vmin;
+  margin: 6vmin 6vmin;
 }
 .questionnaire-container {
+  min-width: 71vmin;
+  max-width: 100vmin;
   position: absolute;
-  top: 0;
+  top: 0vmin;
   right: 0;
   font-size: 3vmin;
   width: calc(100% - 120vmin);
-  overflow-y: scroll;
-  height: 91vmin;
+  height: 52vmin;
   margin: 6vmin 2vmin;
 }
-.flashCard {
-  background: white;
-  padding: 0vmin 5vmin;
-  border-radius: 2vmin;
-  box-shadow: 0px 0px 1vmin 1vmin #00000073;
+.questionnaire-container.readMore {
+  transition: 2s;
+  min-width: 96%;
+  top: 0vmin;
+} 
+.coverForInterview.readMore {
+  display: none;
+  transition: 2s;
 }
+.content-container.readMore,
+.backgroundVideo.readMore{
+  filter: blur(4px);
+  transition: 2s;
+} 
 
 .questions {
   font-family: Futura;
   color: #e91e63;
-  font-size: 4vmin;
+  font-size: 2.5vmin;
   font-weight: 600;
 }
 .answers {
   font-family: "Helvetica Neue";
-  font-size: 3vmin;
+  font-size: 2vmin;
   font-weight: 200;
+  color:black;
+  overflow-y: scroll
 }
 .introPara {
   font-family: Futura;
@@ -76,6 +88,85 @@ h1 {
   background: black;
   min-height: 100%;
   animation: slidein 2s;
+}
+
+.coverForInterview{
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 20px;
+  cursor: pointer;
+  min-width: 71vmin;
+  max-width: 100vmin;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 3vmin;
+  width: calc(100% - 120vmin);
+  height: 91vmin;
+  margin: 6vmin 2vmin;
+}
+
+/* Flip action */
+.flashCard {
+  perspective: 100vmin;
+  width: 30vmin;
+  height: 43vmin;
+  position: absolute;
+  margin: 0px auto;
+}
+
+.flashCard .flashCard-inner.flipped {
+  transform: rotateY(-180deg);
+  z-index: 4;
+}
+
+.flashCard .flashCard-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  position: relative;
+  display: inline-block;
+  border: 5px solid #e4c372;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.flashCard .flashCard-inner .questions,
+.flashCard .flashCard-inner .answers
+{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden ;
+  z-index: 2;
+  background:black;
+  border-radius: 15px;
+}
+
+.flashCard.flipped{
+  width: 100%;
+  height: 84vmin;
+  z-index: 1;
+  position: absolute;
+  left: 0 !important;
+}
+.flashCard .flashCard-inner .questions {
+  position: absolute;
+  z-index: 1;
+}
+.flashCard .flashCard-inner .answers {
+  transform: rotateY(-180deg);
+  background: white;
+}
+
+.flashCardLogoContainer{
+  margin: 0px auto;
+  max-width: 10vmin;
+}
+.flashCardLogoContainer img{
+  width:100%;
+  height: auto;
 }
 
 @keyframes slidein {
