@@ -35,7 +35,7 @@ class IndexPage extends Component {
   };
 
   render() {
-    let flashCardState= "flashCard ";
+    let flashCardState = "flashCard ";
     const allStarsListJSON = JSON.parse(localStorage.getItem("stars"));
     const starDetailsJSON = JSON.parse(localStorage.getItem("starsDetails"));
     const item = allStarsListJSON.find(item => {
@@ -122,11 +122,12 @@ class IndexPage extends Component {
             }
           >
             {questionArray.map((answer, i) => {
-              return (                
+              return (
                 <div
                   key={i + "a"}
                   onClick={this.toggleMenu}
-                  className={flashCardState+
+                  className={
+                    flashCardState +
                     (this.state.clickedCard === answer.number
                       ? "flipped"
                       : "") +
@@ -135,10 +136,10 @@ class IndexPage extends Component {
                   style={{ left: 32 * i + "vmin" }}
                 >
                   <div
-                    onClick={() =>{
+                    onClick={() => {
                       let isToggled = this.state.toggled;
                       this.setState({ toggled: !isToggled });
-                      this.setState({ clickedCard: answer.number })
+                      this.setState({ clickedCard: answer.number });
                     }}
                     className={
                       "flashCard-inner " +
@@ -170,6 +171,9 @@ class IndexPage extends Component {
                       >
                         Go back
                       </button>
+                      <div>
+                        <img src={answer.images} />
+                      </div>
                       <div>{answer.question}</div>
                       <div
                         key={i + 1}
