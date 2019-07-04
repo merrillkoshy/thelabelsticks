@@ -198,6 +198,39 @@ h1 {
   box-shadow: 4px 4px 7px #000;
   cursor: pointer;
 }
+.goHome{
+  position: absolute;
+  top: 1vmin;
+  right: 8vmin;
+  z-index: 10;
+  width: 6vmin;
+  margin: auto;
+  background: black;
+  border-radius: 1vmin;
+  padding: 1vmin;
+  box-shadow: 0vmin 0vmin 2vmin 0.1vmin #FFF;
+  cursor:pointer;
+}
+.goHome a img{
+  width: 100%;
+  height: auto;
+}
+.imageContainer{
+  width: 35%;
+  position: absolute;
+  margin: 0 10vmin;
+}
+.imageContainer img{
+  width: 100%;
+  height: auto;
+}
+
+
+.interviewAnswerContainer{
+  width: 50%;
+  position: absolute;
+  left: 47%;
+}
 @keyframes slidein {
   0% {
     left: 100%;

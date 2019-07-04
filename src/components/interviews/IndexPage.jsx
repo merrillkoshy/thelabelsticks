@@ -70,6 +70,9 @@ class IndexPage extends Component {
               dangerouslySetInnerHTML={{ __html: itemDetail.startingPara }}
             />
           </div>
+          <div className="goHome">
+            <a href="/"><img src="https://thelabelsticks.com/assets/home-button.png" /></a>
+          </div>
           <div
             className={
               "coverForInterview " +
@@ -163,19 +166,20 @@ class IndexPage extends Component {
                       />
                     </div>
                     <div className="answers">
-                      <button
+                     <div> <button
                         onClick={() => {
                           this.setState({ revertCard: answer.number });
                           this.setState({ readMore: "" });
                         }}
                       >
                         Go back
-                      </button>
-                      <div>
+                      </button></div>
+                      <div className="imageContainer">
                         <img src={answer.images} />
+                        {console.log(answer.images)}
                       </div>
-                      <div>{answer.question}</div>
                       <div
+                      className="interviewAnswerContainer"
                         key={i + 1}
                         dangerouslySetInnerHTML={{ __html: answer.answer }}
                       />
